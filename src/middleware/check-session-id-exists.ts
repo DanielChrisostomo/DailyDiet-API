@@ -2,9 +2,9 @@ import { FastifyReply, FastifyRequest } from "fastify"
 
 export async function checkSessionIdExists(request: FastifyRequest, reply: FastifyReply) {
 
-    const sessionID = request.cookies.sessionId
+    const sessionId = request.cookies.sessionId
 
-    if(!sessionID) {
+    if(!sessionId) {
         return reply.status(404).send("User Unauthorized")
     }
 }

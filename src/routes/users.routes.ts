@@ -4,17 +4,6 @@ import { randomUUID } from "crypto";
 import { z } from "zod";
 
 export async function usersRoutes (app: FastifyInstance) {
-
-    app.get("/", async (request, reply) => {
-        const users = await knex("users").select("*")
-
-        if(users) {
-            return reply.status(200).send(users)
-        } else {
-            reply.status(404).send("The data you request does not exists")
-        }
-    })
-
     app.post("/", async (request, reply) => {
 
         let sessionId = request.cookies.sessionId
